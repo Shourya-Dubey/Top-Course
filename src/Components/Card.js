@@ -26,7 +26,7 @@ const Card = (props) => {
         <div className="relative">
             <img src={course.image.url}></img>
 
-            <div className="w-[30px] h-[30px] bg-white rounded-full absolute right-2 bottom-3 grid place-items-center">
+            <div className="w-[30px] h-[30px] bg-white rounded-full absolute right-2 bottom-[-12px] grid place-items-center">
               <button onClick={clickHandler}>
                 {
                   !LikedCourses.include(course.id) ? (<FcLikePlaceholder fontSize="1.75rem"/>) : (<FcLike fontSize="1. 75rem "/>)
@@ -37,7 +37,11 @@ const Card = (props) => {
 
         <div className="p-4">
             <p className="text-white font-semibold text-lg leading-6">{course.title}</p>
-            <p className="mt-2 text-white">{course.description}</p>
+            <p className="mt-2 text-white">
+              {
+                course.description.leght>100 ? (course.description.substr(0,100)) : + "..."(course.description)
+              }
+            </p>
         </div>
       </div>
     )
